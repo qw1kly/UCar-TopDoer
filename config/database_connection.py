@@ -5,7 +5,7 @@ from models.models import Base
 
 class Connect:
     def open(self):
-        engine = create_engine('sqlite:///users.db')
+        engine = create_engine('sqlite:///reviews.db')
         Base.metadata.create_all(engine)
         Session = sessionmaker(bind=engine)
 
@@ -13,5 +13,6 @@ class Connect:
 
     def close(self):
         self.session.close()
+
 
 manager = Connect()
